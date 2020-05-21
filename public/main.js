@@ -3,6 +3,11 @@
 //This is built for education and office use purpose.
 // After setting it up in your Visual studio and obtainig it in LIVE SERVER, add this LOCALHOST to heroku where you can generate your own site for the following server.
 //You can use this script in order to build to android or IOS app software. 
+// If you have any queries related any line of code. You can contact me directly. 
+// IN order to make it more simpler I tried my best to add more description in form of comments
+//This Video calling app have two server connected node for same time. No more than two clent can be active at a time.
+
+
 
 let Peer = require('simple-peer')
 let socket = io()
@@ -11,7 +16,7 @@ const filter = document.querySelector('#filter')
 const checkboxTheme = document.querySelector('#theme')
 let client = {}
 let currentFilter
-//get stream
+//To navigate through get stream by User Medai
 navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     .then(stream => {
         socket.emit('NewClient')
@@ -92,17 +97,18 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             })
 
         }
+    //this is written to give the Active session record to User.
 
         function SessionActive() {
             document.write('Session Active. Please come back later')
         }
-
+//This will help you to filter the client server network which is based Webrctc.
         function SendFilter(filter) {
             if (client.peer) {
                 client.peer.send(filter)
             }
         }
-
+//This is made to access by both user to have remove each other from there server.
         function RemovePeer() {
             document.getElementById("peerVideo").remove();
             document.getElementById("muteText").remove();
