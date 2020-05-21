@@ -1,4 +1,8 @@
 // this project is written by TanzilCorporation
+// this built in JAVASCRIPT.
+//This is built for education and office use purpose.
+// After setting it up in your Visual studio and obtainig it in LIVE SERVER, add this LOCALHOST to heroku where you can generate your own site for the following server.
+//You can use this script in order to build to android or IOS app software. 
 
 let Peer = require('simple-peer')
 let socket = io()
